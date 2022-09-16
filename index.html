@@ -17,24 +17,19 @@
       'Scissors'
     ]
 
+    let computerChoice = '';
+
     let getComputerChoice = () => {
       //computer picks either rock, paper, or scissors
-      let computerChoice = choices[Math.floor(Math.random()*choices.length)];
+      computerChoice = choices[Math.floor(Math.random()*choices.length)];
       //console logs ComputerChoice
       console.log(computerChoice);
+      return computerChoice;
     }
 
-    function playRound(playerSelection, computerSelection) {
-      let result = '';
-      //Player inputs a choice (case insensitive)
-      //compare player choice to computer choice
-      //output 'You Win!' if player choice beats it
-      //else output 'You Lose!'
-      else {
-        result = 'You Lose!' + computerChoice + ' beats ' + playerChoice;
-        return result;
-      }
-    }
+    getComputerChoice();
+
+   
   </script>
 </body>
 </html>

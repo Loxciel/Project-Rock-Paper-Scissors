@@ -25,10 +25,15 @@
     }
 
     function playRound(playerSelection, computerSelection) {
+      let result = '';
       //Player inputs a choice (case insensitive)
       //compare player choice to computer choice
       //output 'You Win!' if player choice beats it
       //else output 'You Lose!'
+      else {
+        result = 'You Lose!' + computerChoice + ' beats ' + playerChoice;
+        return result;
+      }
     }
   </script>
 </body>

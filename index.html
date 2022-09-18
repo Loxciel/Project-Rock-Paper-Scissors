@@ -32,24 +32,27 @@
     //Player inputs a choice (case insensitive)
     function playRound(playerChoice, computerSelection = computerChoice) {
       let result = '';
+      let score = '';
       let compWin = 0;
       let playerWin = 0;
       let total = playerWin + compWin;
             //compare player choice to computer choice
       if (playerChoice == 'rock' && computerChoice == 'Scissors' || 
-          playerChoice == 'raper' && computerChoice == 'Rock' ||
+          playerChoice == 'paper' && computerChoice == 'Rock' ||
           playerChoice == 'scissors' && computerChoice == 'Paper') {
             //output You Win message if player wins
             result = 'You Win! ' + playerChoice + ' beats ' + computerChoice;
             playerWin = playerWin + 1;
-            console.log("Player:" + playerWin + " Computer: " + compWin);
+            let score = "Player:" + playerWin + " Computer: " + compWin;
+            console.log(score);
             return result;
           }
       //else output 'You Lose!'
       else {
         result = 'You Lose!' + computerChoice + ' beats ' + playerChoice;
         compWin = compWin + 1;
-        console.log("Player:" + playerWin + " Computer: " + compWin);
+        let score = "Player:" + playerWin + " Computer: " + compWin;
+        console.log(score);
         return result;
       }
     }
@@ -62,7 +65,7 @@
           playRound(round.toLowerCase);
       }
         //call playRound()
-      //End game once either player or comp wins more after 5 rounds
+      //End game once rounds reach 5;
         //player and computer have different win counts
         //player has input -> prompt()
           //display text = 'Rock, Paper, or Scissors?'

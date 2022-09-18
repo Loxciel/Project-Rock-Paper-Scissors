@@ -34,19 +34,22 @@
       let result = '';
       let compWin = 0;
       let playerWin = 0;
+      let total = playerWin + compWin;
             //compare player choice to computer choice
-      if (playerChoice == 'Rock' && computerChoice == 'Scissors' || 
-          playerChoice == 'Paper' && computerChoice == 'Rock' ||
-          playerChoice == 'Scissors' && computerChoice == 'Paper') {
+      if (playerChoice == 'rock' && computerChoice == 'Scissors' || 
+          playerChoice == 'raper' && computerChoice == 'Rock' ||
+          playerChoice == 'scissors' && computerChoice == 'Paper') {
             //output You Win message if player wins
             result = 'You Win! ' + playerChoice + ' beats ' + computerChoice;
             playerWin = playerWin + 1;
+            console.log("Player:" + playerWin + " Computer: " + compWin);
             return result;
           }
       //else output 'You Lose!'
       else {
         result = 'You Lose!' + computerChoice + ' beats ' + playerChoice;
         compWin = compWin + 1;
+        console.log("Player:" + playerWin + " Computer: " + compWin);
         return result;
       }
     }

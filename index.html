@@ -27,16 +27,16 @@
       return computerChoice;
     }
 
-    getComputerChoice();
-
-    //Player inputs a choice (case insensitive)
-    function playRound(playerChoice, computerSelection = computerChoice) {
       let result = '';
       let score = '';
       let compWin = 0;
       let playerWin = 0;
       let total = playerWin + compWin;
+
+    //Player inputs a choice (case insensitive)
+    function playRound(playerChoice, computerSelection = computerChoice) {
             //compare player choice to computer choice
+      getComputerChoice();
       if (playerChoice == 'rock' && computerChoice == 'Scissors' || 
           playerChoice == 'paper' && computerChoice == 'Rock' ||
           playerChoice == 'scissors' && computerChoice == 'Paper') {
@@ -45,7 +45,12 @@
             playerWin = playerWin + 1;
             let score = "Player:" + playerWin + " Computer: " + compWin;
             console.log(score);
-            return result;
+            return console.log(result);
+          } else if (playerChoice == computerChoice.toLowerCase()) {
+            result = 'Draw!';
+            let score = "Player:" + playerWin + " Computer: " + compWin;
+            console.log(score);
+            return console.log(result);
           }
       //else output 'You Lose!'
       else {
@@ -53,7 +58,7 @@
         compWin = compWin + 1;
         let score = "Player:" + playerWin + " Computer: " + compWin;
         console.log(score);
-        return result;
+        return console.log(result);
       }
     }
 
@@ -62,7 +67,7 @@
       for (let i = 0; i < 5; i++) {
         let round = prompt('Rock, Paper, or Scissors? (Choose one)');
 
-          playRound(round.toLowerCase);
+          playRound(round.toLowerCase());
       }
         //call playRound()
       //End game once rounds reach 5;

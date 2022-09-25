@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <button class="rock">Rock</button>
+  <button class="paper">Paper</button>
+  <button class="scissors">Scissors</button>
 
   <script>
 
@@ -59,13 +62,15 @@
               return console.log(result);
             }
     }
-
+    //computer picks a choice + new choice each round
     function game() {
       //prompt choice
         let round = prompt('Rock, Paper, or Scissors? (Choose one)');
 
           playRound(round.toLowerCase());
     }
+
+    //onclick -> button inputs playerChoice into playRound()
 
     game();
   </script>

@@ -8,9 +8,9 @@
 </head>
 <body>
 
-  <button class="rock">Rock</button>
-  <button class="paper">Paper</button>
-  <button class="scissors">Scissors</button>
+  <button id="button" class="rock">Rock</button>
+  <button id="button" class="paper">Paper</button>
+  <button id="button" class="scissors">Scissors</button>
 
   <script>
 
@@ -70,15 +70,33 @@
           playRound(round.toLowerCase());
     }
 
+ //event = click
+ //click button -> return button value
+ //button value = rps -> class
+
+    function playerSelection(event) {
+      const choice = document.querySelector(`#button[class="${this['class']}"]`);
+      console.log(choice);
+      return choice;
+    }
+
     //onclick -> button inputs playerChoice into playRound()
-      //addEventListener, click 
-    let button = document.getElementById('button');
-    button.addEventListener('click', playerSelection);
+    //intialize button selector
+
+
+    let buttons = document.querySelectorAll('#button');
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const selection = button.innerText.toLowerCase();
+      console.log(selection);
+      playRound(selection);
+    }))
+      
+    //addEventListener, click 
+
         //parse what value is being taken via classSelector
       //input value into playRound
-      
-    function playerSelection()
-    game();
+     
+    //game();
   </script>
 </body>
 </html>

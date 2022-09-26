@@ -71,7 +71,13 @@
     }
 
     //onclick -> button inputs playerChoice into playRound()
-
+      //addEventListener, click 
+    let button = document.getElementById('button');
+    button.addEventListener('click', playerSelection);
+        //parse what value is being taken via classSelector
+      //input value into playRound
+      
+    function playerSelection()
     game();
   </script>
 </body>

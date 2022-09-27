@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="scoreboard"></div>
 
   <button id="button" class="rock">Rock</button>
   <button id="button" class="paper">Paper</button>
@@ -25,8 +26,6 @@
     let getComputerChoice = () => {
       //computer picks either rock, paper, or scissors
       computerChoice = choices[Math.floor(Math.random()*choices.length)];
-      //console logs ComputerChoice
-      console.log(computerChoice);
       return computerChoice;
     }
 
@@ -35,32 +34,48 @@
       let compWin = 0;
       let playerWin = 0;
       let total = playerWin + compWin;
+      
+      let scoreBoard = document.getElementsByClassName('scoreboard')[0];
 
     //Player inputs a choice (case insensitive)
-    function playRound(playerChoice, computerSelection = computerChoice) {
-            //compare player choice to computer choice
+    function playRound(playerChoice, computerSelection = computerChoice) { 
+           
       getComputerChoice();
+      //compare player choice to computer choice
       if (playerChoice == 'rock' && computerChoice == 'Scissors' || 
           playerChoice == 'paper' && computerChoice == 'Rock' ||
           playerChoice == 'scissors' && computerChoice == 'Paper') { //output You Win message if player wins
+            scoreBoard.innerText = '';
             result = 'You Win! ' + playerChoice + ' beats ' + computerChoice;
             playerWin = playerWin + 1;
             let score = "Player:" + playerWin + " Computer: " + compWin;
+            scoreBoard.innerText = `${result}
+             ${score}`;
             console.log(score);
-            return console.log(result);
-          } else if (playerChoice == computerChoice.toLowerCase()) { //draw condition if choices are same
+            console.log(result);
+            return; 
+        } else if (playerChoice == computerChoice.toLowerCase()) { //draw condition if choices are same
+            scoreBoard.innerHTMl = ''; //clear out before add score and result
             result = 'Draw!';
             let score = "Player:" + playerWin + " Computer: " + compWin;
+            scoreBoard.innerText = `${result}
+             ${score}`;
             console.log(score);
-            return console.log(result);
+            console.log(result);
+            return;
           }
-            else { //else output 'You Lose!'
+          else { //else output 'You Lose!'
+              scoreBoard.innerHTMl = '';
               result = 'You Lose!' + computerChoice + ' beats ' + playerChoice;
               compWin = compWin + 1;
               let score = "Player:" + playerWin + " Computer: " + compWin;
+              scoreBoard.innerText = `${result}
+             ${score}`;
               console.log(score);
-              return console.log(result);
+              console.log(result);
+              return;
             }
+           
     }
     //computer picks a choice + new choice each round
     function game() {
@@ -73,12 +88,6 @@
  //event = click
  //click button -> return button value
  //button value = rps -> class
-
-    function playerSelection(event) {
-      const choice = document.querySelector(`#button[class="${this['class']}"]`);
-      console.log(choice);
-      return choice;
-    }
 
     //onclick -> button inputs playerChoice into playRound()
     //intialize button selector

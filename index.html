@@ -39,6 +39,18 @@
 
     //Player inputs a choice (case insensitive)
     function playRound(playerChoice, computerSelection = computerChoice) { 
+
+      if(playerWin == 5) {
+        scoreBoard.textContent = `${score}
+             Game Over! You Win!`
+             return;
+      }
+
+      if(compWin == 5) {
+        scoreBoard.textContent = `${score}
+             Game Over! You Lose!`
+             return;
+      }
            
       getComputerChoice();
       //compare player choice to computer choice
